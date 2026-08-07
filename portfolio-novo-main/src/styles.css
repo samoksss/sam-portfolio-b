@@ -1,0 +1,147 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+  /* warm beige base with orange accent */
+  --background: oklch(0.958 0.017 82);
+  --foreground: oklch(0.28 0.024 60);
+  --card: oklch(0.972 0.013 82);
+  --card-foreground: oklch(0.28 0.024 60);
+  --popover: oklch(0.972 0.013 82);
+  --popover-foreground: oklch(0.28 0.024 60);
+  --primary: oklch(0.66 0.18 45);
+  --primary-foreground: oklch(0.99 0.008 85);
+  --secondary: oklch(0.93 0.02 80);
+  --secondary-foreground: oklch(0.32 0.026 60);
+  --muted: oklch(0.93 0.02 80);
+  --muted-foreground: oklch(0.52 0.024 62);
+  --accent: oklch(0.66 0.18 45);
+  --accent-foreground: oklch(0.99 0.008 85);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0.008 85);
+  --border: oklch(0.84 0.022 74);
+  --input: oklch(0.84 0.022 74);
+  --ring: oklch(0.66 0.18 45);
+}
+
+.dark {
+  --background: oklch(0.958 0.017 82);
+  --foreground: oklch(0.28 0.024 60);
+  --card: oklch(0.972 0.013 82);
+  --card-foreground: oklch(0.28 0.024 60);
+  --popover: oklch(0.972 0.013 82);
+  --popover-foreground: oklch(0.28 0.024 60);
+  --primary: oklch(0.66 0.18 45);
+  --primary-foreground: oklch(0.99 0.008 85);
+  --secondary: oklch(0.93 0.02 80);
+  --secondary-foreground: oklch(0.32 0.026 60);
+  --muted: oklch(0.93 0.02 80);
+  --muted-foreground: oklch(0.52 0.024 62);
+  --accent: oklch(0.66 0.18 45);
+  --accent-foreground: oklch(0.99 0.008 85);
+  --border: oklch(0.84 0.022 74);
+  --input: oklch(0.84 0.022 74);
+  --ring: oklch(0.66 0.18 45);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 300;
+  }
+}
+
+/* Thin-outline card: no fill, hairline border */
+@utility card-outline {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: transparent;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+
+  &:hover {
+    border-color: var(--color-primary);
+  }
+}
+
+@utility section-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+@utility pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  padding: 0.625rem 1.375rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+}
