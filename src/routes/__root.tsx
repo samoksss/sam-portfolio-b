@@ -97,19 +97,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       { rel: "icon", href: "/favicon.ico", sizes: "any" },
     ],
-    scripts: [
-      {
-        src: "https://www.googletagmanager.com/gtag/js?id=G-TF0M67PVCK",
-        async: true,
-      },
-      {
-        children:
-          "window.dataLayer = window.dataLayer || [];" +
-          "function gtag(){dataLayer.push(arguments);}" +
-          "gtag('js', new Date());" +
-          "gtag('config', 'G-TF0M67PVCK');",
-      },
-    ],
   }),
 
   shellComponent: RootShell,
